@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.css">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src="https://unpkg.com/bootstrap-table@1.15.5/dist/bootstrap-table.min.js"></script>
+</head>
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">TP-Node.js</a>
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#">Films</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Séries</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Animés</a>
+    </li>
+  </ul>
+</nav>
+
+<body>
+  <table data-toggle="table" data-url="/series" data-search="true" class="table" data-pagination="true"
+    data-show-columns="true" data-pagination-v-align="both"><br />
+    <thead>
+      <tr>
+        <th data-field="id" data-sortable="true" data-valign="middle">id</th>
+        <th data-field="titre" data-sortable="true">Titre</th>
+        <th data-field="resume">Resumé</th>
+        <th data-field="duree" data-sortable="true">Durée</th>
+        <th data-field="premiereDiffusion" data-sortable="true">Première Diffusion</th>
+        <th data-field="image" data-formatter="genericFm"></th>
+      </tr>
+    </thead>
+  </table>
+</body>
+
+</html>
+<style>
+  body {
+    background-color: aliceblue;
+  }
+
+  table {
+    background-color: white;
+  }
+</style>
+<script>
+  function genericFm(value, row, index, field) {
+    return '<a href="'+value+'"><img src="' + value + '" width=100></a>';
+  }
+
+  function footerStyle(column) {
+    return {
+      css: { 'font-weight': 'normal' },
+      classes: 'my-class'
+    }
+  }
+</script>
